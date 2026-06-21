@@ -1,9 +1,10 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ProductList from "./pages/ProductList";
 import ProductDetails from "./pages/ProductDetails";
-import Nabvar from './components/Navbar';
+import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import OrdersPage from './pages/OrdersPage';
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import PrivateRouter from './components/PrivateRouter';
@@ -11,13 +12,14 @@ import PrivateRouter from './components/PrivateRouter';
 function App() {
     return (
         <Router>
-            <Nabvar/>
+            <Navbar/>
             <Routes>
                 <Route path="/" element={<ProductList/>}/>
                 <Route path="/product/:id" element={<ProductDetails/>}/>
                 <Route path="/cart" element={<CartPage/>}/>
                 <Route element={<PrivateRouter/>}>
                     <Route path="/checkout" element={<CheckoutPage/>}/>
+                    <Route path="/orders" element={<OrdersPage/>}/>
                 </Route>
                 <Route path="/login" element={<Login/>} />
                 <Route path="/signup" element={<Signup/>} />
